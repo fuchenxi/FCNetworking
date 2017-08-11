@@ -15,24 +15,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define kTimeInterval [[NSUserDefaults standardUserDefaults]valueForKey:kTimeInterValKey]
-#define kTimeInterValKey @"timeInterval"
-
-/// 秘钥
-static NSString * const kSign = @"8d47782c953572edbd59eb61974egfdh";
-/// appid
-static NSString * const kAppid = @"50001";
-/// 版本
-static NSString * const kApp_Version = @"SAASPDA_1.0.0_I_CN";
-/// 版本key
-static NSString * const kApp_Version_Key = @"cv";
-/// 版本号
-static NSString * const kApp_Version_Num = @"100";
-/// 渠道id
-static NSString * const kChannel_id = @"kChannel_id";
-/// 渠道号
-static NSString * const kChannel_num = @"";
-
 @class FCRequest;
 
 typedef NS_ENUM(NSInteger, FCRequestType) {
