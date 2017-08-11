@@ -23,6 +23,8 @@
 
 @property (nonatomic, copy) FCCenterResponseProcessBlock responseProcessHandler;
 
+@property (nonatomic, copy) FCCenterRequestEncryptBlock requestEncryptHandler;
+
 @end
 
 @implementation FCCenter
@@ -82,6 +84,11 @@
 - (void)setResponseProcessBlock:(FCCenterResponseProcessBlock)block {
     
     self.responseProcessHandler = block;
+}
+
+- (void)setRequestEncryptBlock:(FCCenterRequestEncryptBlock)block {
+    
+    self.requestEncryptHandler = block;
 }
 
 - (void)setGeneralHeaderValue:(NSString *)value forField:(NSString *)field {
@@ -158,6 +165,7 @@
     FC_SAFE_BLOCK(self.requestProcessHandler, request);
     FC_SAFE_BLOCK(configBlock, request);
     [self fc_processRequest:request progress:progressBlock success:successBlock failure:failureBlock finished:finishedBlock];
+    FC_SAFE_BLOCK(self.requestEncryptHandler, request);
     [self fc_sendRequest:request];
     return request.identifier;
 }
@@ -200,6 +208,11 @@
 + (void)setResponseProcessBlock:(FCCenterResponseProcessBlock)block {
     
     [[self defaultCenter] setResponseProcessBlock:block];
+}
+
++ (void)setRequestEncryptBlock:(FCCenterRequestEncryptBlock)block {
+    
+    [[self defaultCenter] setRequestEncryptBlock:block];
 }
 
 + (void)setGeneralHeaderValue:(NSString *)value forField:(NSString *)field {

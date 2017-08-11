@@ -38,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setRequestProcessBlock:(FCCenterRequestProcessBlock)block;
 /// 自定义响应结果的处理逻辑 如果 `*error` 被赋值，则接下来会执行 failure block。
 - (void)setResponseProcessBlock:(FCCenterResponseProcessBlock)block;
+/// 自定义请求加密
+- (void)setRequestEncryptBlock:(FCCenterRequestEncryptBlock)block;
 /// 配置或修改公共请求头
 - (void)setGeneralHeaderValue:(nullable NSString *)value forField:(NSString *)field;
 /// 配置或修改公共请求参数
@@ -92,6 +94,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)setRequestProcessBlock:(FCCenterRequestProcessBlock)block;
 
 + (void)setResponseProcessBlock:(FCCenterResponseProcessBlock)block;
+
++ (void)setRequestEncryptBlock:(FCCenterRequestEncryptBlock)block;
 
 + (void)setGeneralHeaderValue:(nullable NSString *)value forField:(NSString *)field;
 

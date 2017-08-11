@@ -59,6 +59,7 @@ typedef void(^FCFinishedBlock)(id _Nullable responseObject, NSError  * _Nullable
 typedef void(^FCCancelBlock)(FCRequest *request);
 typedef void (^FCCenterRequestProcessBlock)(FCRequest *request);
 typedef void (^FCCenterResponseProcessBlock)(FCRequest *request, id _Nullable responseObject, NSError * _Nullable __autoreleasing *error);
+typedef void (^FCCenterRequestEncryptBlock)(FCRequest *request);
 NS_ASSUME_NONNULL_END
 
 
